@@ -1,0 +1,10 @@
+{% extends 'eapp/base.html' %}
+
+{% block content %}
+	{% for lt in lists %}
+	<a href="{% url 'eapp:detail' lt.pk %}">{% load thumbnail %}
+	<img src="{% thumbnail lt.image 275x300 crop %}" alt="" /></a>
+	{% endfor %}
+</div>
+
+{% endblock %}

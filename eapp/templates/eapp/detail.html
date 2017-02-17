@@ -1,0 +1,13 @@
+{% extends 'eapp/base.html' %}
+
+
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+	{% if lists.image %}
+		<img src="{{ lists.image.url }}" class="img-responsive">
+	{% endif %}
+	<h3>{{ lists.title }}</h3>
+	{{ lists.content|linebreaks }}
+	{{ lists.updated }} <br/>
+<div>
+{% endblock content%}

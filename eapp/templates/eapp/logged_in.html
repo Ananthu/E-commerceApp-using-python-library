@@ -1,0 +1,23 @@
+<!h1>Not a used html. bootstrap and python thumbnail stuff </h1>
+
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+		    	<div class="thumbnail">
+		      		{% if lt.image%}
+		      		<img src="{{ lt.image.url }}" class="img-responsive">
+		      		{% endif %}
+		      		<!img src="..." alt="...">
+		      			<div class="caption">
+		        		<h3><a href="{% url 'eapp:detail' lt.id %}">{{ lt.title}}</a><small>  {{ lt.timestamp|timesince }} ago</small></h3>
+		        	<p>{{ lt.content|linebreaks|truncatechars:120 }}</p>
+		        	<p><a href="{% url 'eapp:detail' lt.id %}" class="btn btn-primary" role="button">View</a></p>
+		      	</div>
+			</div>
+		</div>
+
+
+			{% load thumbnail %}
+	{% for lt in lists %}
+	<a href="{% url 'eapp:detail' lt.pk %}">{% load thumbnail %}
+<img src="{% thumbnail lt.image 275x300 crop %}" alt="" /></a>
+	{% endfor %}
